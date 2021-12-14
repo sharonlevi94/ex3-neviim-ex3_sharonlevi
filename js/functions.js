@@ -1,21 +1,22 @@
 'use strict';
 export default {
-    getData: ()=>{
+    getData: () => {
 
     },
-    searchImages: ()=>{
-
+    searchImages: (searchParams) => {
+        console.log(searchParams)
     },
-    clearSearch: ()=>{
+    clearSearch: () => {
         console.log('clearSearch working')
+        document.getElementById('show-saved-images').innerHTML = ''
     },
-    startSlide: ()=>{
+    startSlide: () => {
         console.log('startSlide working')
     },
-    stopSlide: ()=>{
+    stopSlide: () => {
         console.log('stopSlide working')
     },
-    saveImage: ()=>{
+    saveImage: () => {
         console.log('saveImage working')
     }
 }
