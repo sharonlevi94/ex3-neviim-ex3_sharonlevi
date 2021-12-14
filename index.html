@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <script type="module" src="./js/functions.js"></script>
+    <script type="module" src="./js/index.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="card text-center text-white">
+        <img class="card-img"
+             src="https://astronomy.com/-/media/Images/News%20and%20Observing/News/2021/09/marslandscape.jpg?mw=600"
+             alt="Card image"
+             style="height: 300px;">
+        <div class="card-img-overlay">
+            <div class="display-2"><strong>Mars images browser</strong></div>
+            <div class="display-6">Browse NASA Mars images and save your preferred ones.</div>
+            <br>
+            <a class="btn btn-success btn-lg"
+               href="#"
+               role="button"
+               data-toggle="modal"
+               data-target="#exampleModal">Who am I</a>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal Header-->
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Personal Details</h5>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <span>Name: Sharon Levi</span> <br>
+                    <span>Email: sharonlevi@edu.hac.ac.il</span> <br>
+                    <span>ID: 311593313</span>
+                </div>
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row justify-content-center">
+
+        <!-- Search Images -->
+        <div class="col-md-5 me-5 ms-5 ">
+            <div class="alert alert-primary" role="alert">
+                <h2>Search for images:</h2>
+            </div>
+
+            <form class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="date-input">Date (YYYY-MM-DD) or Sol</label>
+                        <input type="text" id="date-input" class="form-control" placeholder="YYYY-MM-DD"
+                               required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="rover-input">Select Rover:</label>
+                        <input type="text" id="rover-input" class="form-control" placeholder="Rover" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="camera-input">Select Camera</label>
+                        <input type="text" id="camera-input" class="form-control" placeholder="Camera" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <button type="button" id="search-images" class="btn btn-outline-primary">Search</button>
+            <button type="button" id="clear-search" class="btn btn-outline-primary">Clear</button>
+        </div>
+
+        <!-- Saved Images -->
+        <div class="col-md-5 me-5 ms-5">
+            <div class="alert alert-success" role="alert">
+                <h2>Saved Images</h2>
+            </div>
+            <button type="button" id="start-slide" class="btn btn-outline-success">Start Slide show</button>
+            <button type="button" id="stop-slide" class="btn btn-outline-success">Stop Slide show</button>
+            <div id="show-saved-images"></div>
+        </div>
+
+    </div>
+
+    <!-- Search Results -->
+    <div class="row justify-content-center mt-3 me-lg-5 ms-lg-5 ">
+        <div class="alert alert-primary" role="alert">
+            <h2>Search results:</h2>
+        </div>
+        <div id="search-results"></div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
+</html>

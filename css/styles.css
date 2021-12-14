@@ -1,0 +1,16 @@
+.bg1{
+    background-color: #198754;
+}
+
+.bg2{
+    background-color: #5c636a;
+}
+.header{
+    background-image: url("https://astronomy.com/-/media/Images/News%20and%20Observing/News/2021/09/marslandscape.jpg?mw=600");
+    height: 300px;
+    width: 100%;
+}
+
+.card{
+
+}
