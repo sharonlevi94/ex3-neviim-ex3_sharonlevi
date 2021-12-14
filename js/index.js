@@ -28,9 +28,9 @@ document.getElementById("start-slide").addEventListener('click', () => {
 document.getElementById("stop-slide").addEventListener('click', () => {
     functions.stopSlide()
 });
-/*document.getElementById('save-image').addEventListener('click', () => {
+document.getElementById('save-image').addEventListener('click', () => {
     functions.saveImage()
-});*/
+});
 document.addEventListener('DOMContentLoaded', () => {
     functions.getData()
 });
