@@ -1,13 +1,11 @@
 'use strict';
 import functions from './functions.js'
-
+import elementsCreator from './createElements.js'
 //-------------------------------------------------------------------
-const APIKEY = '9GRY3CnSoCrsBwyJQlZMNGq3t28Icw2SJjXFkrbv'
-
 let savedImages = []
 let results = []
-let roverList = []
-let cameraList = []
+let cameraList = ['FHAZ','RHAZ','MAST','CHEMCAM','MAHLI','MARDI','NAVCAM','PANCAM','MINITES']
+let roversList = ['Curiosity','Opportunity','Spirit']
 
 let date = document.getElementById('date-input')
 let rover = document.getElementById('rover-input')
@@ -18,12 +16,14 @@ const errorMessage = {
 }
 
 //-------------define all event listeners---------------------------------------------------
-document.getElementById("search-images").addEventListener('click', () => {
-    functions.searchImages({date: date.value, rover: rover.value, camera: camera.value})
+document.getElementById('search-images').addEventListener('submit', (e) => {
+    functions.searchImages(e,{date: date.value, rover: rover.value, camera: camera.value})
 });
 document.getElementById("clear-search").addEventListener('click', () => {
     functions.clearSearch()
-    date.value = rover.value = camera.value = ''
+    date.value = ''
+    rover.value = 'Choose a Rover'
+    camera.value = 'Choose a Camera'
 });
 document.getElementById("start-slide").addEventListener('click', () => {
     functions.startSlide()
@@ -31,10 +31,8 @@ document.getElementById("start-slide").addEventListener('click', () => {
 document.getElementById("stop-slide").addEventListener('click', () => {
     functions.stopSlide()
 });
-/*document.getElementById('save-image').addEventListener('click', () => {
-    functions.saveImage()
-});*/
 document.addEventListener('DOMContentLoaded', () => {
+    elementsCreator.createSelectLists(roversList, cameraList)
     functions.getData()
 });
 //-------------------------------------------------------------------

@@ -10,6 +10,7 @@
 
     <script type="module" src="./js/functions.js"></script>
     <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/validations.js"></script>
 
     <title>Exercise 3 - Internet Programming Course</title>
 </head>
@@ -64,8 +65,8 @@
                 <h2>Search for images:</h2>
             </div>
 
-            <form class="needs-validation" novalidate>
-                <div class="form-row">
+            <form class="needs-validation" id="search-images" novalidate>
+
                     <div class="col-md-4 mb-3">
                         <label for="date-input">Date (YYYY-MM-DD) or Sol</label>
                         <input type="text" id="date-input" class="form-control" placeholder="YYYY-MM-DD"
@@ -76,23 +77,23 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="rover-input">Select Rover:</label>
-                        <input type="text" id="rover-input" class="form-control" placeholder="Rover" required>
+                        <!--<input type="text" id="rover-input" class="form-control" placeholder="Rover" required>-->
+                        <select class="form-select" id="rover-input" required></select>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="camera-input">Select Camera</label>
-                        <input type="text" id="camera-input" class="form-control" placeholder="Camera" required>
+                        <!--<input type="text" id="camera-input" class="form-control" placeholder="Camera" required>-->
+                        <select class="form-select" id="camera-input" required></select>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
-                </div>
+                <input type="submit" value="Search" class="btn btn-outline-primary">
+                <button type="reset" id="clear-search" class="btn btn-outline-primary">Clear</button>
             </form>
-
-            <button type="button" id="search-images" class="btn btn-outline-primary">Search</button>
-            <button type="button" id="clear-search" class="btn btn-outline-primary">Clear</button>
         </div>
 
         <!-- Saved Images -->
@@ -102,7 +103,8 @@
             </div>
             <button type="button" id="start-slide" class="btn btn-outline-success">Start Slide show</button>
             <button type="button" id="stop-slide" class="btn btn-outline-success">Stop Slide show</button>
-            <div id="show-saved-images"></div>
+            <ul id="saved-images-list" class="saved-images-list list-group"></ul>
+
         </div>
 
     </div>
@@ -112,7 +114,8 @@
         <div class="alert alert-primary" role="alert">
             <h2>Search results:</h2>
         </div>
-        <div id="search-results"></div>
+        <div id="search-results"><div class="card-group"></div></div>
+        <div id="no-photos"></div>
     </div>
 </div>
 
