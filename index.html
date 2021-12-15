@@ -59,8 +59,9 @@
     <hr/>
     <div class="row justify-content-center">
 
+
         <!-- Search Images -->
-        <div class="col-md-5 me-5 ms-5 ">
+        <div class="col-md-5 me-3 ms-3 ">
             <div class="alert alert-primary" role="alert">
                 <h2>Search for images:</h2>
             </div>
@@ -71,33 +72,31 @@
                         <label for="date-input">Date (YYYY-MM-DD) or Sol</label>
                         <input type="text" id="date-input" class="form-control" placeholder="YYYY-MM-DD"
                                required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <span id="date-error" class="badge bg-danger rounded"></span>
                     </div>
+
                     <div class="col-md-4 mb-3">
                         <label for="rover-input">Select Rover:</label>
-                        <!--<input type="text" id="rover-input" class="form-control" placeholder="Rover" required>-->
                         <select class="form-select" id="rover-input" required></select>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <span id="rover-error" class="badge bg-danger rounded"></span>
                     </div>
+
                     <div class="col-md-4 mb-3">
                         <label for="camera-input">Select Camera</label>
-                        <!--<input type="text" id="camera-input" class="form-control" placeholder="Camera" required>-->
                         <select class="form-select" id="camera-input" required></select>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                        <span id="camera-error" class="badge bg-danger rounded"></span>
                     </div>
+
                 <input type="submit" value="Search" class="btn btn-outline-primary">
                 <button type="reset" id="clear-search" class="btn btn-outline-primary">Clear</button>
+
             </form>
         </div>
 
+        <div class="col-md-1"><div id="loading"></div></div>
+
         <!-- Saved Images -->
-        <div class="col-md-5 me-5 ms-5">
+        <div class="col-md-5 me-3 ms-3">
             <div class="alert alert-success" role="alert">
                 <h2>Saved Images</h2>
             </div>
@@ -109,8 +108,13 @@
 
     </div>
 
+    <!-- Slide Show -->
+    <div id="slide-show" class="row justify-content-center mt-3 me-lg-5 ms-lg-5">
+
+    </div>
+
     <!-- Search Results -->
-    <div class="row justify-content-center mt-3 me-lg-5 ms-lg-5 ">
+    <div class="row justify-content-center mt-3 me-lg-5 ms-lg-5">
         <div class="alert alert-primary" role="alert">
             <h2>Search results:</h2>
         </div>

@@ -20,16 +20,14 @@ export default {
     },
 
     createResults: (images) => {
-        console.log(images)
         let results = ``
-        if(images.length === 0){
+        if (images.length === 0) {
             results = `
             <div class="alert alert-warning h2" role="alert">
                 <strong>No image found!</strong> 
             </div>`
             document.getElementById('search-results').innerHTML = results
-        }
-        else{
+        } else {
             results += `<div class="row">`
             for (let image of images) {
                 results += `
@@ -44,7 +42,7 @@ export default {
               </ul>
               <div class="card-body">
                 <button type="button" id="${image.id}" class="save-image btn btn-outline-info">Save</button>
-                <button type="button" id="full-size" class="btn btn-outline-info">Full Size</button>
+                <a href="${image.img_src}" target="_blank" role="button" id="full-size" class="btn btn-outline-info">Full Size</a>
               </div>
             </div>`
             }
@@ -52,23 +50,30 @@ export default {
             document.getElementById('search-results').innerHTML = results
 
             const btns = document.getElementsByClassName('save-image')
-            for(let btn of btns){
+            for (let btn of btns) {
                 btn.addEventListener('click', functions.saveImage)
             }
         }
     },
 
-    saveImage: (image)=>{
-        console.log(image)
+    saveImage: (image) => {
         let savedImage = ``
         let node = document.createElement("li");
 
         savedImage += `
-        <a href="${image.imageSrc}" class="text-reset">Image id: ${image.id}</a><br>
+        <a href="${image.imageSrc}" target="_blank" class="text-reset">Image id: ${image.id}</a><br>
         ${image.date},${image.sol},${image.camera}`
 
         node.innerHTML = savedImage
 
         document.getElementById('saved-images-list').appendChild(node)
+    },
+
+    serverNotAvailableMessage: () => {
+        let message = ''
+        message = `<div class="alert alert-danger h2" role="alert">
+                    <strong>Server is not available now! please try again later. </strong> 
+                </div>`
+        document.getElementById('search-results').innerHTML = message
     }
 }

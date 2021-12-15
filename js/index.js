@@ -2,18 +2,12 @@
 import functions from './functions.js'
 import elementsCreator from './createElements.js'
 //-------------------------------------------------------------------
-let savedImages = []
-let results = []
 let cameraList = ['FHAZ','RHAZ','MAST','CHEMCAM','MAHLI','MARDI','NAVCAM','PANCAM','MINITES']
 let roversList = ['Curiosity','Opportunity','Spirit']
 
 let date = document.getElementById('date-input')
 let rover = document.getElementById('rover-input')
 let camera = document.getElementById('camera-input')
-
-const errorMessage = {
-    appearance: false,
-}
 
 //-------------define all event listeners---------------------------------------------------
 document.getElementById('search-images').addEventListener('submit', (e) => {
